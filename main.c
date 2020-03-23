@@ -61,15 +61,9 @@ void selection_sort(int a[], int L) {
 
 void insertion_sort(int a[], int L){
     for(int i = 0; i < L - 1; i++){
-        int min = i + 1;
-        for(int j = i; j >= 0; j--){
-            if(a[j] < a[min]){
-                 min = j;
-                 break;
-            }
+        for(int j = i; j >= 0 && a[j] > a[j+1]; j--){
+            swap(&a[j], &a[j+1]);
         }
-        swap(&a[i+1], &a[min+1]);
-        print_array(a, L);
     }
 }
 
